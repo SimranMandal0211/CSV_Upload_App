@@ -1,8 +1,13 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const port = 8000;
 
+
+const db = require('./config/mongoose');
 const expressLayouts = require('express-ejs-layouts');
+const session = require('express-session');
+const flash = require('connect-flash');
 
 
 // middleware to use assets
@@ -17,6 +22,21 @@ app.set('layout extractScripts', true);
 // setting view engine as ejs
 app.set('view engine', 'ejs');
 app.set('views', './views');
+
+
+// ---Database connection---
+const { connectMongoose } = require('./config/mongoose');
+connectMongoose();
+
+// to create an dues sessions
+app.use(session({
+    secret: process.env.SECRET,
+    saveUninitialized: true,
+    resave: true
+}));
+
+// uisng connect-flash to display flash notification in FE
+app.use(flash());
 
 // router
 app.use('/', require('./routes'));
