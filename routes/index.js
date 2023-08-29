@@ -12,7 +12,7 @@ router.get('/', homeController.homePage);
 router.use('/file/uploads', homeController.uploadFile);
 
 // view CSV File in Table formet
-router.use('/view/:id', homeController.displayCSV);
+router.use('/views/:id', homeController.displayCSV);
 
 // delete CSV file
 router.use('/delete/:id', homeController.deleteCSV);
