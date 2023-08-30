@@ -7,6 +7,7 @@ const papa = require('papaparse');
 module.exports.homePage = async function(request, respond){
     let files = await CSVFile.find({});
 
+    console.log('files:--->', files);
     return respond.render('home', {
         title: "CSV Upload | Home",
         files: files
@@ -18,6 +19,7 @@ module.exports.uploadFile = (request, respond) => {
     console.log('upload file');
     CSVFile.uploadedCSV(request, respond, async function(err){
         try{
+            console.log('upload file inside try', request.file);
             let csvFile = await CSVFile.findOne({name: request.file.originalname});
 
             if(csvFile){
@@ -36,7 +38,7 @@ module.exports.uploadFile = (request, respond) => {
             // allowing only csv input type
             if(request.file && request.file.mimetype == 'text/csv'){
                 // inserting the converted JSON to DB
-                let csvFile = csvFile.create({
+                let csvFile = CSVFile.create({
                     name: request.file.originalname,
                     file: conversedFile.data
                 });

@@ -7,6 +7,8 @@ const port = 8000;
 const db = require('./config/mongoose');
 const expressLayouts = require('express-ejs-layouts');
 const session = require('express-session');
+
+const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 
 const customMware = require('./config/middleware');
@@ -34,7 +36,13 @@ connectMongoose();
 app.use(session({
     secret: process.env.SECRET,
     saveUninitialized: true,
-    resave: true
+    resave: true,
+    Store: MongoStore.create({
+        mongoUrl: `mongodb://127.0.0.1/${process.env.DB}`, 
+        autoRemove: 'disable'
+    },function(err){
+        console.log(err || 'connect-mongodb setup OK');
+    })
 }));
 
 // uisng connect-flash to display flash notification in FE
