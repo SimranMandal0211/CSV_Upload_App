@@ -1,0 +1,9 @@
+header{
+    height: 10vh;
+    background-color: rgb(209, 209, 209);
+    /* font-family: 'Roboto', sans-serif; */
+    font-weight: bold;
+    color: #66a166;
+    font-size: 1.5rem;
+    padding: .5rem;
+}

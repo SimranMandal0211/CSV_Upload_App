@@ -1,0 +1,14 @@
+footer{
+    height: 10vh;
+    background-color: rgb(209, 209, 209);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #5b8f5b;
+    font-weight: bold;
+}
+
+.footer-links a{
+    padding: 0 .5rem;
+    color: rgb(72, 72, 72);
+}
