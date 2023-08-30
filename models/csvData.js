@@ -20,10 +20,10 @@ const csvSchema = new mongoose.Schema({
 // multer storage 
 const storage = multer.diskStorage({
     destination: function(request, file, cb){
-        cb(null, path.join(__dirname), '..', CSV_PATH);
+        cb(null, path.join(__dirname, '..', CSV_PATH));
     },
-    filename: function(Request, file, cb){
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.randome() * 1E9)
+    filename: function(request, file, cb){
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
         cb(null, file.fieldname + '-' + uniqueSuffix)
     }
 });

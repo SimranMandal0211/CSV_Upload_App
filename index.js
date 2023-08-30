@@ -9,6 +9,8 @@ const expressLayouts = require('express-ejs-layouts');
 const session = require('express-session');
 const flash = require('connect-flash');
 
+const customMware = require('./config/middleware');
+
 
 // middleware to use assets
 app.use(express.static('./assets'));
@@ -37,6 +39,7 @@ app.use(session({
 
 // uisng connect-flash to display flash notification in FE
 app.use(flash());
+app.use(customMware.setFlash);
 
 // router
 app.use('/', require('./routes'));
