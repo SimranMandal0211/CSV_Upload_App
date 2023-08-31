@@ -49,7 +49,7 @@ module.exports.uploadFile = (request, respond) => {
                 return respond.redirect('back');
             }
         }catch(err){
-            console.log('error', err);
+            console.log('error in uploading file', err);
             request.flash('error', 'something went wrong');
             return respond.render('servererror');
         }
@@ -58,21 +58,33 @@ module.exports.uploadFile = (request, respond) => {
 
 // display csv Data
 module.exports.displayCSV = async(request, respond) => {
-    console.log('display CSV');
+    try{
+        let displayData = await CSVFile.findById(request.params.id);
 
-    let displayData = await CSVFile.findById(request.params.id);
-    return respond.render('table', {
-        title: 'CSV Uploaf | Details',
-        file: displayData.name,
-        keys: displayData.file[0],
-        results: displayData.file
-    })
+        console.log('display data', displayData);
+        return respond.render('table', {
+            title: 'CSV Uploaf | Details',
+            file: displayData.name,
+            keys: displayData.file[0],
+            results: displayData.file
+        })
+    }catch(err){
+        console.log('error in displaying table', err);
+        request.flash('error', 'something went wrong');
+        return respond.render('servererror');
+    }
 };
 
 // delete CSV from DB
 module.exports.deleteCSV  = async (request, respond) => {
-    console.log('delete CSV');
-    let deleteCSV = await CSVFile.findByIdAndDelete(request.params.id);
-    request.flash('success' , 'CSV removed successfully');
-    return respond.redirect('back');
+    try{
+        console.log('delete CSV');
+        let deleteCSV = await CSVFile.findByIdAndDelete(request.params.id);
+        request.flash('success' , 'CSV removed successfully');
+        return respond.redirect('back');
+    }catch(err){
+        console.log('error in deleting file', err);
+        request.flash('error', 'something went wrong');
+        return respond.render('servererror');
+    }
 }

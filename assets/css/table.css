@@ -2,3 +2,38 @@
     height: 80vh;
     border: 2px solid red;
 }
+
+.table-container h2,a {
+    padding: 1rem;
+    color: green;
+}
+
+.search-form{
+    /* border: 2px solid green; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.search-form input{
+    font-size: 1.3rem;
+    padding: .2rem;
+    border-radius: .2rem;
+    outline: none;
+    border: none;
+    box-shadow: 1px 1px 6px 0px #888888;
+}
+
+.search-form button{
+    margin-left: .5rem;
+    padding: .3rem .5rem;
+    font-size: 1.3rem;
+    border-radius: .2rem;
+    border: none;
+    outline: none;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+}

@@ -1,12 +1,17 @@
 <link rel="stylesheet" href="/css/table.css">
 
-<div class="table-container">
+<main class="table-container">
     <h2>
         <a href="/">
             <i class="fa-solid fa-house"></i>
         </a>
         / <%= file %>
     </h2>
+
+    <form action="" class="search-form">
+        <input type="text" name="searchRow" id="search-input" placeholder="Search..."/>
+        <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
 
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
@@ -28,4 +33,14 @@
               <% } %>
         </tbody>
     </table>
+
+    <div>
+        <p>Showing 1 to 1 of entries(filtered from 44 totle entries)</p>
+
+        <div>
+            <span>Previous</span>
+            <span>1</span>
+            <span>Next</span>
+        </div>
+    </div>
 </div>

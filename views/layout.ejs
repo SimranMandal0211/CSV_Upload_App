@@ -25,10 +25,11 @@
 
     <%- include('_footer'); %>
     <%- script %>
+    <script src="/js/file_viewer.js"></script>
     <script>
         <% if(flash.success && flash.success.length > 0){ %>
             new Noty({
-                theme: 'metroui',
+                theme: 'relex',
                 text: '<%= flash.success %>',
                 type: 'success',
                 layout: 'topRight',
@@ -38,7 +39,7 @@
 
         <% if(flash.error && flash.error.length > 0){ %>
             new Noty({
-                theme: 'metroui',
+                theme: 'relex',
                 text: '<%= flash.error %>',
                 type: 'error',
                 layout: 'topRight',
