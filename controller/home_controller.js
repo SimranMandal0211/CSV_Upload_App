@@ -43,10 +43,10 @@ module.exports.uploadFile = (request, respond) => {
                     file: conversedFile.data
                 });
                 request.flash('success', 'CSV uploaded successfully');
-                return respond.redirect('back');
+                return respond.redirect('/');
             }else{
                 request.flash('error', 'only CSV file allowed');
-                return respond.redirect('back');
+                return respond.redirect('/');
             }
         }catch(err){
             console.log('error in uploading file', err);
