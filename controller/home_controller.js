@@ -61,12 +61,12 @@ module.exports.displayCSV = async(request, respond) => {
     try{
         let displayData = await CSVFile.findById(request.params.id);
 
-        console.log('display data', displayData);
+        console.log('display data', displayData.file);
         return respond.render('table', {
             title: 'CSV Uploaf | Details',
             file: displayData.name,
             keys: displayData.file[0],
-            results: displayData.file
+            results: displayData.file.slice(1)
         })
     }catch(err){
         console.log('error in displaying table', err);

@@ -8,6 +8,7 @@
     color: green;
 }
 
+/* search box */
 .search-form{
     /* border: 2px solid green; */
     display: flex;
@@ -36,4 +37,20 @@
     background-color: green;
     color: white;
     font-weight: bold;
+}
+
+/* table data */
+
+table{
+    text-align: center;
+}
+
+th{
+    background-color: #228622;
+    font-weight: bold;
+    color: white;
+}
+
+th,td{
+    padding: .3rem;
 }
