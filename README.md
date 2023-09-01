@@ -11,3 +11,5 @@ CSV Upload File which build using Nodejs, Ejs, Javascript, CSS. It is responsive
 - There is a sorting button (ascending and descending) for each column on the front-end
 - There is a validation on the front-end and server side in being able to upload only csv type of files
 - There is a pagination of the data displayed in the able to a max of 100 records per page
+
+<span style="background-color: gray;">Run my project</span>
