@@ -13,3 +13,6 @@ CSV Upload File which build using Nodejs, Ejs, Javascript, CSS. It is responsive
 - There is a pagination of the data displayed in the able to a max of 100 records per page
 
 ## **Run my project**
+    npm install
+    npm start
+    Open [http://localhost:8000] view
