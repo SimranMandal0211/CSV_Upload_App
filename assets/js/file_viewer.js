@@ -76,6 +76,8 @@ $('th').on('click', function () {
 
     // After sorting, re-render the table with the updated results
     renderTable(results);
+    // After sorting, re-render the table and page info together
+    paginationTable(results);
 });
 
 function renderTable(data) {
@@ -94,3 +96,68 @@ function renderTable(data) {
         tableBody.appendChild(row);
     }
 }
+
+// Pageing
+let currentPage = 1;
+let recordsPerPage = 10;
+
+function paginationTable(){
+    console.log('paging');
+
+    const startIndex = (currentPage - 1) * recordsPerPage;
+    const endIndex = Math.min(startIndex + recordsPerPage, results.length);
+    const sliceData = results.slice(startIndex, endIndex);
+
+    // clear the existing table content
+    const tableBody = document.querySelector('tbody');
+    tableBody.innerHTML = '';
+
+    // Populate the table with data from the current page
+    for(const item of sliceData){
+        const row = document.createElement('tr');
+        for(const key in item){
+            const cell = document.createElement('td');
+            cell.textContent = item[key];
+            row.appendChild(cell);
+        }
+        tableBody.appendChild(row);
+    }
+    // Update the start and end entry numbers
+    document.getElementById('start-entry').textContent = startIndex + 1;
+    document.getElementById('end-entry').textContent = endIndex;
+
+    updatePageInfo(results);
+}
+
+
+// Update the total pages and entry count information
+function updatePageInfo(){
+    const totalEntries = results.length;
+    const totalPages = Math.ceil(totalEntries / recordsPerPage);
+
+    document.getElementById('current-page').textContent = currentPage;
+    document.getElementById('total-pages').textContent = totalPages;
+    document.getElementById('total-entries').textContent = totalEntries;
+}
+
+// Add event listener for "Next" button
+document.getElementById('next-page').addEventListener('click', function(){
+    if(currentPage < Math.ceil(results.length / recordsPerPage)){
+        currentPage++;
+        paginationTable();
+        updatePageInfo();
+    }
+});
+
+// Add event listener for "Previous" button
+document.getElementById('prev-page').addEventListener('click', function(){
+    if(currentPage > 1){
+        currentPage--;
+        paginationTable();
+        updatePageInfo();
+    }
+});
+
+// Initial rendering of the table and page info
+paginationTable();
+updatePageInfo();

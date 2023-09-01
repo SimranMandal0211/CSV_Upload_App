@@ -34,13 +34,15 @@
         </tbody>
     </table>
 
-    <div>
-        <p>Showing 1 to 1 of entries(filtered from 44 totle entries)</p>
+    <div class="pagination-box">
+        <div class="entry-count">
+            Showing <span id="start-entry">1</span> to <span id="end-entry">1</span> of entries(filtered from <span id="total-entries">0</span> total entries)
+        </div>
 
-        <div>
-            <span>Previous</span>
-            <span>1</span>
-            <span>Next</span>
+        <div id="pagination-controls">
+            <button id="prev-page">Previous</button>
+            <span id="page-info">Page <span id="current-page">1</span> of <span id="total-pages">1</span></span>
+            <button id="next-page">Next</button>
         </div>
     </div>
 </main>
