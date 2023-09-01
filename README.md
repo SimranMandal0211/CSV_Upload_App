@@ -31,3 +31,9 @@ CSV Upload File which build using Nodejs, Ejs, Javascript, CSS. It is responsive
 - connect-mongo
 - fs
 - path
+
+## 💻 Screen
+### CSV Upload File
+![Alt Text](./assets/images/homePage_csvUpload.png)
+
+![Alt Text](./assets/images/tablePage.png)
