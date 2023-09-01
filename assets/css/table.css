@@ -1,5 +1,6 @@
 .table-container{
     height: 80vh;
+    overflow: auto;
     /* border: 2px solid red; */
 }
 
@@ -40,6 +41,12 @@
 }
 
 /* table data */
+
+.table-chart-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 table{
     text-align: center;

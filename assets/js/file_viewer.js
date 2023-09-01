@@ -37,6 +37,9 @@ $('th').on('click', function () {
     let order = $(this).data('order');
     console.log('column clicked', column, 'order-->', order);
 
+    // Draw the chart based on the selected colum
+    drawChart(column);
+
     if (order == 'desc') {
         $(this).data('order', 'asc');
         results = results.sort((a, b) => {
@@ -161,3 +164,35 @@ document.getElementById('prev-page').addEventListener('click', function(){
 // Initial rendering of the table and page info
 paginationTable();
 updatePageInfo();
+
+
+function drawChart(selectedColumn){
+    console.log('draw chart');
+    const data = [['Category', 'Value']];
+    for(const item of results){
+        const category = item[0];
+        const value = parseFloat(item[selectedColumn]);
+
+        if(!isNaN(value)){
+            data.push([category, value]);
+        }else{
+            data.push([category, 0]);
+        }
+    }
+
+    // Load Google Charts
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(() => {
+        const dataTable = google.visualization.arrayToDataTable(data);
+
+        // Create the chart
+        const options = {
+            title: `Chart for Column ${selectedColumn}`,
+            width: 400,
+            height: 300
+        };
+
+        const chart = new google.visualization.ColumnChart(document.getElementById('chartContainer'));
+        chart.draw(dataTable, options);
+    });
+}

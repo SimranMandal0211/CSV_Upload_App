@@ -13,26 +13,30 @@
         <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
 
-    <table border="1" id="dataTable" width="100%" cellspacing="0">
-        <thead>
-            <tr>
-                <% for(let i = 0; i < keys.length; i++){ %>
-                    <th data-column=<%= i %> data-order="desc"><%= keys[i] %> &#9660;</th>
-                <% } %>
-            </tr>
-        </thead>
-        <tbody>
-            <% for(let k = 0; k < results.length;k++){ %>
-                <% var ans = results[k] %>
+    <div class="table-chart-box">
+        <table border="1" id="dataTable" width="100%" cellspacing="0">
+            <thead>
                 <tr>
-                  <% for(let j = 0; j < keys.length; j++){ %>
-                    <td><%= ans[j] %></td>
-                  <% } %>
+                    <% for(let i = 0; i < keys.length; i++){ %>
+                        <th data-column=<%= i %> data-order="desc"><%= keys[i] %> &#9660;</th>
+                    <% } %>
                 </tr>
+            </thead>
+            <tbody>
+                <% for(let k = 0; k < results.length;k++){ %>
+                    <% var ans = results[k] %>
+                    <tr>
+                      <% for(let j = 0; j < keys.length; j++){ %>
+                        <td><%= ans[j] %></td>
+                      <% } %>
+                    </tr>
+        
+                  <% } %>
+            </tbody>
+        </table>
     
-              <% } %>
-        </tbody>
-    </table>
+        <div id="chartContainer"></div>
+    </div>
 
     <div class="pagination-box">
         <div class="entry-count">
@@ -45,6 +49,9 @@
             <button id="next-page">Next</button>
         </div>
     </div>
+
+    
+    
 </main>
 
 <script>
