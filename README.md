@@ -16,3 +16,18 @@ CSV Upload File which build using Nodejs, Ejs, Javascript, CSS. It is responsive
     npm install
     npm start
     Open [http://localhost:8000] view
+
+## Packages Install
+- express-ejs-layouts
+- dotenv
+- ejs
+- express
+- mongoose
+- nodemon
+- express-session
+- multer
+- papaparse
+- connect-flash
+- connect-mongo
+- fs
+- path
