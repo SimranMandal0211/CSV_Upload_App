@@ -1,4 +1,4 @@
-require('dotenv').config()
+// require('dotenv').config()
 const mongoose = require('mongoose');
 
 // exports.connectMongoose = () => {
@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 //     useNewUrlParser: true
 //   })
 //   .then((e) => console.log('Connected to MongoDB -> CSV Upload'))
-//   .catch((e) => console.log("Not Connect MongoDB"))
+//   .catch((e) => console1.log("Not Connect MongoDB"))
 // }
 
 
